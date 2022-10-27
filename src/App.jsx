@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <main className="App">
         <Header className="App-header" Title="React Memory Game"></Header>
-        <Footer Text="React Memory Card Project 11/22"></Footer>
+        <Footer Footer="React Memory Card Project 11/22"></Footer>
       </main>);
   }
 }

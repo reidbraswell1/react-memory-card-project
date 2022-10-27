@@ -7,7 +7,7 @@ class Footer extends Component {
 
     render() {
         return (<footer className="text-center border">
-            <p>{this.props.Text}</p>
+            <p>{this.props.Footer}</p>
         </footer>);
     }
 }
