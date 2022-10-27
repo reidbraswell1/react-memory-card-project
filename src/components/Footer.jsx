@@ -6,7 +6,9 @@ class Footer extends Component {
     }
 
     render() {
-        return (<p className="text-center">{this.props.Text}</p>);
+        return (<footer className="text-center border">
+            <p>{this.props.Text}</p>
+        </footer>);
     }
 }
 export default Footer;
