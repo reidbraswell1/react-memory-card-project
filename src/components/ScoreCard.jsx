@@ -6,8 +6,8 @@ class ScoreCard extends Component {
     }
     render() {
         return (<div className="App-scoreboard">
-            <span>Score:</span>
-            <span>Best Score:</span>
+            <span>Score: {this.props.score}</span>
+            <span>Best Score: {this.props.bestScore}</span>
             </div>);
     }
 }
