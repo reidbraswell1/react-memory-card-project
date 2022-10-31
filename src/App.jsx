@@ -30,7 +30,7 @@ class App extends Component {
       case "generalPunctuation1":
         document.getElementById("span-symbol").innerHTML = "&#8209;"
         for (let i = 0; i < 7; i++) {
-          randomSymbols.push(Math.floor(Math.random() * (this.state.generalPunctuationMax1 - this.state.generalPunctuationMin1) + this.state.generalPunctuationMin1));
+          randomSymbols.push(Math.floor(Math.random() * (config.generalPunctuationMax1 - config.generalPunctuationMin1) + config.generalPunctuationMin1));
         }
         document.getElementById("span-symbol").innerHTML = `&#${randomSymbols[0]};`;
         this.setState({randomSymbol:randomSymbols.slice(0)})
