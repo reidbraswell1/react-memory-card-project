@@ -12,32 +12,97 @@ class App extends Component {
     this.processSelection = this.processSelection.bind(this);
     this.processChoice = this.processChoice.bind(this);
     this.state = {
-      randomSymbol: [],
+      randomSymbols: [],
     }
   }
 
   processSelection(event) {
     console.log(`---Begin Function ${this.processSelection.name}---`);
     console.log(`Event =`, event);
-    console.log(event.target.selectedOptions[0]);
+    console.log(`Selected Options =`, event.target.selectedOptions);
 
-    let randomSymbols = [];
+    let symbols = [];
     if (event.target.selectedOptions.length > 1) {
       console.log(`Error`);
       return;
     }
     switch (event.target.selectedOptions[0].value) {
       case "generalPunctuation1":
-        document.getElementById("span-symbol").innerHTML = "&#8209;"
-        for (let i = 0; i < 7; i++) {
-          randomSymbols.push(Math.floor(Math.random() * (config.generalPunctuationMax1 - config.generalPunctuationMin1) + config.generalPunctuationMin1));
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.generalPunctuationMax1 - config.generalPunctuationMin1) + config.generalPunctuationMin1));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
         }
-        document.getElementById("span-symbol").innerHTML = `&#${randomSymbols[0]};`;
-        this.setState({randomSymbol:randomSymbols.slice(0)})
-        console.log("random symbol",this.state.randomSymbol.length)
-        console.log("Random Symbol", randomSymbols[0])
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
         break;
       case "generalPunctuation2":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.generalPunctuationMax2 - config.generalPunctuationMin2) + config.generalPunctuationMin2));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
+      case "currencySymbols":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.currencySymbolsMax - config.currencySymbolsMin) + config.currencySymbolsMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
+      case "arrows":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.arrowsMax - config.arrowsMin) + config.arrowsMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
+      case "mathematical-operators":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.mathSymbolsMax - config.mathSymbolsMin) + config.mathSymbolsMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
+      case "emoji":
+        try {
+          let emojis = config.emoji.length;
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            let randomIdx = Math.floor(Math.random() * (config.emoji.length - 1) + 1);
+            symbols.push(config.emoji[randomIdx]);
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
+
+      default:
         break;
     }
     console.log(`---End Function ${this.processSelection.name}---`);
@@ -45,10 +110,10 @@ class App extends Component {
 
   processChoice(event) {
     console.log(`---Begin ${this.processChoice.name}---`);
-    console.log("event2",event);
-    let randomIndex = Math.floor(Math.random()*(7-1)+1);
-    console.log("RandomIndex",randomIndex)
-    document.getElementById("span-symbol").innerHTML=`&#${this.state.randomSymbol[randomIndex-1]};`
+    console.log("event2", event);
+    let randomIndex = Math.floor(Math.random() * (config.maxSymbolSet - 1) + 1);
+    console.log("RandomIndex", randomIndex)
+    document.getElementById("span-symbol").innerHTML = `&#${this.state.randomSymbols[randomIndex - 1]};`
   }
 
   render() {
@@ -62,7 +127,7 @@ class App extends Component {
           <option value="select">Select an HTML symbol</option>
           <option value="generalPunctuation1">General Punctuation 1 {config.generalPunctuationMin1}-{config.generalPunctuationMax1}</option>
           <option value="generalPunctuation2">General Punctuation 2 {config.generalPunctuationMin2}-{config.generalPunctuationMax2}</option>
-          <option value="currencySymbols">Currency Symbols {config.currencySymbolsMin1}-{config.currencySymbolsMax2}</option>
+          <option value="currencySymbols">Currency Symbols {config.currencySymbolsMin}-{config.currencySymbolsMax}</option>
           <option value="arrows">Arrows {config.arrowsMin}-{config.arrowsMax}</option>
           <option value="mathematical-operators">Mathematical Operators {config.mathSymbolsMin}-{config.mathSymbolsMax}</option>
           <option value="box-drawings">Box Drawings {config.boxDrawingsMin}-{config.boxDrawingsMax}</option>
@@ -75,14 +140,12 @@ class App extends Component {
           <option value=""></option>
         </select>
         <div>
-        <span className="" id="span-symbol"></span>
+          <span className="symbol" id="span-symbol"></span>
         </div>
+        <span>{this.state.randomSymbols.toString()}</span>
         <div>
-        <span>{this.state.randomSymbol.toString()}</span>
-        </div>
-        <div>
-        <button id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>Yes</button>
-        <button id="button-no" name="button-choice" value="no" onClick={this.processChoice}>No</button>
+          <button id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>Yes</button>
+          <button id="button-no" name="button-choice" value="no" onClick={this.processChoice}>No</button>
         </div>
         <Footer Footer="React Memory Card Project 11/22"></Footer>
       </main>);
