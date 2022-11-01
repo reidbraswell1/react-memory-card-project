@@ -22,3 +22,7 @@
 .App .labels {
   display: block;
 }
+
+.symbol {
+  font-size: 5rem;
+}
