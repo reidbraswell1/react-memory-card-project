@@ -135,6 +135,18 @@ class App extends Component {
           console.log(`Error Has Occurred =`, err);
         }
         break;
+      case "dingbats":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.dingbatsMax - config.dingbatsMin) + config.dingbatsMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
       case "emoji":
         try {
           let emojis = config.emoji.length;
