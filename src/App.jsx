@@ -161,7 +161,19 @@ class App extends Component {
           console.log(`Error Has Occurred =`, err);
         }
         break;
-
+      case "emoji-smileys":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            let randomIdx = Math.floor(Math.random() * (config.emojiSmileys.length - 1) + 1);
+            symbols.push(config.emojiSmileys[randomIdx]);
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
       default:
         break;
     }
@@ -196,8 +208,7 @@ class App extends Component {
           <option value="miscelaneous-symbols">Miscellaneous Symbols {config.miscelaneousSymbolsMin}-{config.miscelaneousSymbolsMax}</option>
           <option value="dingbats">Dingbats {config.dingbatsMin}-{config.dingbatsMax}</option>
           <option value="emoji">Emoji</option>
-          <option value=""></option>
-          <option value=""></option>
+          <option value="emoji-smileys">Emoji Smileys</option>
         </select>
         <div>
           <span className="symbol" id="span-symbol"></span>
