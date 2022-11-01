@@ -87,6 +87,30 @@ class App extends Component {
           console.log(`Error Has Occurred =`, err);
         }
         break;
+      case "box-drawings":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.boxDrawingsMax - config.boxDrawingsMin) + config.boxDrawingsMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
+      case "block-elements":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.blockElementsMax - config.blockElementsMin) + config.blockElementsMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
       case "emoji":
         try {
           let emojis = config.emoji.length;
