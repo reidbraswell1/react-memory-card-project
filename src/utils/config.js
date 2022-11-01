@@ -1,10 +1,11 @@
 const config = {
+    maxSymbolSet: 10,
     generalPunctuationMin1: 8208,
     generalPunctuationMax1: 8231,
     generalPunctuationMin2: 8240,
     generalPunctuationMax2: 8286,
-    currencySymbolsMin1: 8352,
-    currencySymbolsMax2: 8399,
+    currencySymbolsMin: 8352,
+    currencySymbolsMax: 8399,
     arrowsMin: 8592,
     arrowsMax: 8703,
     mathSymbolsMin: 8704,
