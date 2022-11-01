@@ -111,6 +111,30 @@ class App extends Component {
           console.log(`Error Has Occurred =`, err);
         }
         break;
+      case "miscelaneous-symbols":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.miscelaneousSymbolsMax - config.miscelaneousSymbolsMin) + config.geometricShapesMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
+      case "geometric-shapes":
+        try {
+          for (let i = 0; i < config.maxSymbolSet; i++) {
+            symbols.push(Math.floor(Math.random() * (config.geometricShapesMax - config.geometricShapesMin) + config.geometricShapesMin));
+          }
+          document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          this.setState({ randomSymbols: symbols.slice(0) });
+        }
+        catch (err) {
+          console.log(`Error Has Occurred =`, err);
+        }
+        break;
       case "emoji":
         try {
           let emojis = config.emoji.length;
@@ -155,7 +179,7 @@ class App extends Component {
           <option value="arrows">Arrows {config.arrowsMin}-{config.arrowsMax}</option>
           <option value="mathematical-operators">Mathematical Operators {config.mathSymbolsMin}-{config.mathSymbolsMax}</option>
           <option value="box-drawings">Box Drawings {config.boxDrawingsMin}-{config.boxDrawingsMax}</option>
-          <option value="block-elements">Block Elements {config.blockElementsMin}-{config.blockElementsMax}</option>
+          <option value="block-elements">Block Elements {config.geometricShapesMin}-{config.geometricShapesMax}</option>
           <option value="geometric-shapes">Geometric Shapes {config.geometricShapesMin}-{config.geometricShapesMax}</option>
           <option value="miscelaneous-symbols">Miscellaneous Symbols {config.miscelaneousSymbolsMin}-{config.miscelaneousSymbolsMax}</option>
           <option value="dingbats">Dingbats {config.dingbatsMin}-{config.dingbatsMax}</option>
