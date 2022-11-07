@@ -3,6 +3,8 @@ import { Component } from 'react';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import { config } from './utils/config.js';
+import { toHaveClass } from '@testing-library/jest-dom/dist/matchers';
+import { useRef } from 'react';
 
 
 class App extends Component {
@@ -13,6 +15,11 @@ class App extends Component {
     this.processChoice = this.processChoice.bind(this);
     this.state = {
       randomSymbols: [],
+      displayedSymbols: [],
+      currentSymbol: null,
+      userScore: 0,
+      computerScore: 0,
+
     }
   }
 
@@ -32,8 +39,12 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.generalPunctuationMax1 - config.generalPunctuationMin1) + config.generalPunctuationMin1));
           }
+          let data = this.state.displayedSymbols;
+          data.push(symbols[0]);
+          this.setState({ displayedSymbols: data })
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
+          this.setState({ currentSymbol: symbols[0] });
         }
         catch (err) {
           console.log(`Error Has Occurred =`, err);
@@ -183,16 +194,47 @@ class App extends Component {
   processChoice(event) {
     console.log(`---Begin ${this.processChoice.name}---`);
     console.log("event2", event);
-    let randomIndex = Math.floor(Math.random() * (config.maxSymbolSet - 1) + 1);
-    console.log("RandomIndex", randomIndex)
-    document.getElementById("span-symbol").innerHTML = `&#${this.state.randomSymbols[randomIndex - 1]};`
+    const randomIndex = Math.floor(Math.random() * (config.maxSymbolSet - 1) + 1);
+    console.log("RandomIndex", randomIndex);
+    let userScore = this.state.userScore;
+    let computerScore = this.state.computerScore;
+    const currentSymbol = this.state.currentSymbol;
+    let displayedSymbolsNew = this.state.displayedSymbols;
+    const randomSymbols = this.state.randomSymbols;
+    const newCurrentSymbol = randomSymbols[randomIndex-1];
+    switch (event.target.value) {
+      case "yes":
+        // Randomly select the next symbol to display from the display pool
+        document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
+        // Add the newly selected symbol to the list of displayed symbols
+        displayedSymbolsNew.push(newCurrentSymbol);
+        // Update the displayed symbols to include the newly selected symbol
+        this.setState({ displayedSymbols: displayedSymbolsNew });
+        let firstIndex = displayedSymbolsNew.indexOf(currentSymbol);
+        let lastIndex = displayedSymbolsNew.indexOf(currentSymbol);
+        if(lastIndex > firstIndex) {
+          this.setState({userScore:++userScore});
+          console.log("Score user");
+        }
+        else {
+          this.setState({computerScore:++computerScore});
+          console.log("Score computer");
+        }
+        this.setState({currentSymbol: newCurrentSymbol});
+        break;
+      case "no":
+        document.getElementById("span-symbol").innerHTML = `&#${this.state.randomSymbols[randomIndex - 1]};`
+        break;
+      default:
+        break;
+    }
   }
 
   render() {
     return (
       <main className="App">
         <header className="App-header">
-          <Header Title="React Memory Game"></Header>
+          <Header Title="React Memory Game" score={this.state.userScore} bestScore={this.state.computerScore}></Header>
         </header>
         <label className="labels" for="symbol-select">Select Symbol</label>
         <select id="symbol-select" name="symbol" onChange={this.processSelection}>
@@ -213,7 +255,13 @@ class App extends Component {
         <div>
           <span className="symbol" id="span-symbol"></span>
         </div>
-        <span>{this.state.randomSymbols.toString()}</span>
+        <span>{`Current Symbol = ${this.state.currentSymbol}`}</span>
+        <br></br>
+        <span>{`Displayed Symbols = ${this.state.displayedSymbols.toString()}`}</span>
+        <br></br>
+        <span>{`Random Symbols = ${this.state.randomSymbols.toString()}`}</span>
+        <br></br>
+        <span>User Score: {this.state.userScore} Computer Score: {this.state.computerScore}</span>
         <div>
           <button id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>Yes</button>
           <button id="button-no" name="button-choice" value="no" onClick={this.processChoice}>No</button>
