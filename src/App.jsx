@@ -201,29 +201,49 @@ class App extends Component {
     const currentSymbol = this.state.currentSymbol;
     let displayedSymbolsNew = this.state.displayedSymbols;
     const randomSymbols = this.state.randomSymbols;
-    const newCurrentSymbol = randomSymbols[randomIndex-1];
+    const newCurrentSymbol = randomSymbols[randomIndex - 1];
     switch (event.target.value) {
       case "yes":
-        // Randomly select the next symbol to display from the display pool
-        document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
-        // Add the newly selected symbol to the list of displayed symbols
-        displayedSymbolsNew.push(newCurrentSymbol);
-        // Update the displayed symbols to include the newly selected symbol
-        this.setState({ displayedSymbols: displayedSymbolsNew });
-        let firstIndex = displayedSymbolsNew.indexOf(currentSymbol);
-        let lastIndex = displayedSymbolsNew.indexOf(currentSymbol);
-        if(lastIndex > firstIndex) {
-          this.setState({userScore:++userScore});
-          console.log("Score user");
+        {
+          // Randomly select the next symbol to display from the display pool
+          document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
+          // Add the newly selected symbol to the list of displayed symbols
+          displayedSymbolsNew.push(newCurrentSymbol);
+          // Update the displayed symbols to include the newly selected symbol
+          this.setState({ displayedSymbols: displayedSymbolsNew });
+          let firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
+          let lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
+          if (lastIndex > firstIndex) {
+            this.setState({ userScore: ++userScore });
+            console.log("Score user");
+          }
+          else {
+            this.setState({ computerScore: ++computerScore });
+            console.log("Score computer");
+          }
+          this.setState({ currentSymbol: newCurrentSymbol });
         }
-        else {
-          this.setState({computerScore:++computerScore});
-          console.log("Score computer");
-        }
-        this.setState({currentSymbol: newCurrentSymbol});
         break;
       case "no":
-        document.getElementById("span-symbol").innerHTML = `&#${this.state.randomSymbols[randomIndex - 1]};`
+        {
+          // Randomly select the next symbol to display from the display pool
+          document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
+          // Add the newly selected symbol to the list of displayed symbols
+          displayedSymbolsNew.push(newCurrentSymbol);
+          // Update the displayed symbols to include the newly selected symbol
+          this.setState({ displayedSymbols: displayedSymbolsNew });
+          let firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
+          let lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
+          if (lastIndex > firstIndex) {
+            this.setState({ computerScore: ++computerScore });
+            console.log("Score computer");
+          }
+          else {
+            this.setState({ userScore: ++userScore });
+            console.log("Score user");
+          }
+          this.setState({ currentSymbol: newCurrentSymbol });
+        }
         break;
       default:
         break;
