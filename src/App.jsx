@@ -18,6 +18,7 @@ class App extends Component {
       displayedSymbols: [],
       currentSymbol: null,
       userScore: 0,
+      bestScore: 0,
       computerScore: 0,
 
     }
@@ -198,49 +199,57 @@ class App extends Component {
     console.log("RandomIndex", randomIndex);
     let userScore = this.state.userScore;
     let computerScore = this.state.computerScore;
+    let bestScore = this.state.bestScore;
     const currentSymbol = this.state.currentSymbol;
     let displayedSymbolsNew = this.state.displayedSymbols;
     const randomSymbols = this.state.randomSymbols;
+    // Randomly select the next symbol to display from the display pool
     const newCurrentSymbol = randomSymbols[randomIndex - 1];
     switch (event.target.value) {
       case "yes":
         {
-          // Randomly select the next symbol to display from the display pool
           document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
           // Add the newly selected symbol to the list of displayed symbols
           displayedSymbolsNew.push(newCurrentSymbol);
           // Update the displayed symbols to include the newly selected symbol
           this.setState({ displayedSymbols: displayedSymbolsNew });
-          let firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
-          let lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
+          const firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
+          const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
           if (lastIndex > firstIndex) {
             this.setState({ userScore: ++userScore });
-            console.log("Score user");
+            if(userScore > bestScore) {
+              this.state.setState({bestScore: userScore});
+            }
+            console.log(`Score user =`, userScore);
           }
           else {
             this.setState({ computerScore: ++computerScore });
-            console.log("Score computer");
+            this.setState({ userScore: 0 });
+            console.log(`Score computer =`, computerScore);
           }
           this.setState({ currentSymbol: newCurrentSymbol });
         }
         break;
       case "no":
         {
-          // Randomly select the next symbol to display from the display pool
           document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
           // Add the newly selected symbol to the list of displayed symbols
           displayedSymbolsNew.push(newCurrentSymbol);
           // Update the displayed symbols to include the newly selected symbol
           this.setState({ displayedSymbols: displayedSymbolsNew });
-          let firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
-          let lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
+          const firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
+          const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
           if (lastIndex > firstIndex) {
             this.setState({ computerScore: ++computerScore });
-            console.log("Score computer");
+            this.setState({ userScore: 0});
+            console.log(`Score computer =`, computerScore);
           }
           else {
             this.setState({ userScore: ++userScore });
-            console.log("Score user");
+            console.log(`Score user =`, userScore);
+            if(userScore > bestScore) {
+              this.setState({bestScore: userScore});              
+            }
           }
           this.setState({ currentSymbol: newCurrentSymbol });
         }
@@ -254,7 +263,7 @@ class App extends Component {
     return (
       <main className="App">
         <header className="App-header">
-          <Header Title="React Memory Game" score={this.state.userScore} bestScore={this.state.computerScore}></Header>
+          <Header Title="React Memory Game" score={this.state.userScore} bestScore={this.state.bestScore}></Header>
         </header>
         <label className="labels" for="symbol-select">Select Symbol</label>
         <select id="symbol-select" name="symbol" onChange={this.processSelection}>
@@ -275,13 +284,16 @@ class App extends Component {
         <div>
           <span className="symbol" id="span-symbol"></span>
         </div>
-        <span>{`Current Symbol = ${this.state.currentSymbol}`}</span>
-        <br></br>
-        <span>{`Displayed Symbols = ${this.state.displayedSymbols.toString()}`}</span>
-        <br></br>
-        <span>{`Random Symbols = ${this.state.randomSymbols.toString()}`}</span>
-        <br></br>
-        <span>User Score: {this.state.userScore} Computer Score: {this.state.computerScore}</span>
+        <div>
+          <h5>Degugging:</h5>
+          <span>{`Current Symbol = ${this.state.currentSymbol}`}</span>
+          <br></br>
+          <span>{`Displayed Symbols = ${this.state.displayedSymbols.toString()}`}</span>
+          <br></br>
+          <span>{`Random Symbols = ${this.state.randomSymbols.toString()}`}</span>
+          <br></br>
+          <span>User Score: {this.state.userScore} Best Score: {this.state.bestScore} Computer Score: {this.state.computerScore}</span>
+        </div>
         <div>
           <button id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>Yes</button>
           <button id="button-no" name="button-choice" value="no" onClick={this.processChoice}>No</button>
