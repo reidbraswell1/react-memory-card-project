@@ -7,9 +7,9 @@ class Header extends Component {
     }
     render() {
         return (<div className="">
-            <h1 className="">{this.props.Title}</h1>
-            <p className="">Objective: Answer the questions to test your memory.
-                <br></br>Highest score is 10!
+            <h1 className="mt-3 mb-3">{this.props.Title}</h1>
+            <p className="mt-3 mb-3">Objective: Answer the questions to test your memory.
+                <br></br>Highest score is {this.props.highestScore}!
             </p>
             <ScoreCard score={this.props.score} bestScore={this.props.bestScore}></ScoreCard>
         </div>)
