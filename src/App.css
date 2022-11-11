@@ -11,6 +11,12 @@
   justify-content: center;
 }
 
+.App-select {
+  font-size: 1.2rem;
+  background: white;
+  border-radius: 7px;
+}
+
 .App-scoreboard {
   display: flex;
   justify-content: space-around;
@@ -23,6 +29,52 @@
   display: block;
 }
 
+.App-item-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 65vw;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.App-button-container {
+  border: 1px solid black;
+  width: 55%;
+}
+
 .symbol {
-  font-size: 5rem;
+  font-size: 3rem;
+  background: azure;
+  width: 20%;
+  border: 1px solid black;
+  border-radius: 10px;
+  min-height: 5rem;
+}
+
+.debugging {
+  background: rgb(93, 252, 109);
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid white;
+  font-size: 2rem;
+  margin: 0 1rem;
+  background: #ededf0;
+}
+
+.btn:hover {
+  background-color: burlywood;
+  cursor: pointer;
+  border: 1px solid white;
 }
