@@ -14,7 +14,7 @@
 .App-select {
   font-size: 1.2rem;
   background: white;
-  border-radius: 7px;
+  border-radius: 8px;
 }
 
 .App-scoreboard {
@@ -38,6 +38,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
+  min-height: 10rem;
 }
 
 .App-button-container {
@@ -46,7 +47,7 @@
 }
 
 .symbol {
-  font-size: 3rem;
+  font-size: 4rem;
   background: azure;
   width: 20%;
   border: 1px solid black;
