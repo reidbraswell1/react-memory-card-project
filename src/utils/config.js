@@ -1,4 +1,5 @@
 const config = {
+    debug: true,
     maxSymbolSet: 10,
     generalPunctuationMin1: 8208,
     generalPunctuationMax1: 8231,
