@@ -217,8 +217,8 @@ class App extends Component {
           const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
           if (lastIndex > firstIndex) {
             this.setState({ userScore: ++userScore });
-            if(userScore > bestScore) {
-              this.state.setState({bestScore: userScore});
+            if (userScore > bestScore) {
+              this.state.setState({ bestScore: userScore });
             }
             console.log(`Score user =`, userScore);
           }
@@ -241,14 +241,14 @@ class App extends Component {
           const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
           if (lastIndex > firstIndex) {
             this.setState({ computerScore: ++computerScore });
-            this.setState({ userScore: 0});
+            this.setState({ userScore: 0 });
             console.log(`Score computer =`, computerScore);
           }
           else {
             this.setState({ userScore: ++userScore });
             console.log(`Score user =`, userScore);
-            if(userScore > bestScore) {
-              this.setState({bestScore: userScore});              
+            if (userScore > bestScore) {
+              this.setState({ bestScore: userScore });
             }
           }
           this.setState({ currentSymbol: newCurrentSymbol });
@@ -263,10 +263,10 @@ class App extends Component {
     return (
       <main className="App">
         <header className="App-header">
-          <Header Title="React Memory Game" score={this.state.userScore} bestScore={this.state.bestScore}></Header>
+          <Header Title="React Memory Game" score={this.state.userScore} bestScore={this.state.bestScore} highestScore={config.maxSymbolSet}></Header>
         </header>
         <label className="labels" for="symbol-select">Select Symbol</label>
-        <select id="symbol-select" name="symbol" onChange={this.processSelection}>
+        <select className="App-select pt-2 pb-2" id="symbol-select" name="symbol" onChange={this.processSelection}>
           <option value="select">Select an HTML symbol</option>
           <option value="generalPunctuation1">General Punctuation 1 {config.generalPunctuationMin1}-{config.generalPunctuationMax1}</option>
           <option value="generalPunctuation2">General Punctuation 2 {config.generalPunctuationMin2}-{config.generalPunctuationMax2}</option>
@@ -281,23 +281,28 @@ class App extends Component {
           <option value="emoji">Emoji</option>
           <option value="emoji-smileys">Emoji Smileys</option>
         </select>
-        <div>
-          <span className="symbol" id="span-symbol"></span>
+        <div className="App-item-container">
+          <div className="symbol">
+            <span id="span-symbol"></span>
+          </div>
+          <div className="App-button-container">
+            <h3>Have you seen this symbol yet?</h3>
+            <button className="btn" id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>Yes</button>
+            <button className="btn" id="button-no" name="button-choice" value="no" onClick={this.processChoice}>No</button>
+          </div>
         </div>
-        <div>
-          <h5>Degugging:</h5>
-          <span>{`Current Symbol = ${this.state.currentSymbol}`}</span>
-          <br></br>
-          <span>{`Displayed Symbols = ${this.state.displayedSymbols.toString()}`}</span>
-          <br></br>
-          <span>{`Random Symbols = ${this.state.randomSymbols.toString()}`}</span>
-          <br></br>
-          <span>User Score: {this.state.userScore} Best Score: {this.state.bestScore} Computer Score: {this.state.computerScore}</span>
-        </div>
-        <div>
-          <button id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>Yes</button>
-          <button id="button-no" name="button-choice" value="no" onClick={this.processChoice}>No</button>
-        </div>
+        {config.debug &&
+          <div className="debugging">
+            <h5>Degugging:</h5>
+            <span>{`Current Symbol = ${this.state.currentSymbol}`}</span>
+            <br></br>
+            <span>{`Displayed Symbols = ${this.state.displayedSymbols.toString()}`}</span>
+            <br></br>
+            <span>{`Random Symbols = ${this.state.randomSymbols.toString()}`}</span>
+            <br></br>
+            <span>User Score: {this.state.userScore} Best Score: {this.state.bestScore} Computer Score: {this.state.computerScore}</span>
+          </div>
+        }
         <Footer Footer="React Memory Card Project 11/22"></Footer>
       </main>);
   }
