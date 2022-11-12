@@ -39,6 +39,7 @@
   margin-right: auto;
   margin-top: 1rem;
   min-height: 10rem;
+  display: none;
 }
 
 .App-button-container {
