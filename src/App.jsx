@@ -43,9 +43,12 @@ class App extends Component {
           let data = this.state.displayedSymbols;
           data.push(symbols[0]);
           this.setState({ displayedSymbols: data })
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
           this.setState({ currentSymbol: symbols[0] });
+          //document.getElementById("app-item-container").style.display="flex";
         }
         catch (err) {
           console.log(`Error Has Occurred =`, err);
@@ -209,6 +212,7 @@ class App extends Component {
       case "yes":
         {
           document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
+          document.getElementById("debug-symbol").innerHTML = `&#${newCurrentSymbol};`;
           // Add the newly selected symbol to the list of displayed symbols
           displayedSymbolsNew.push(newCurrentSymbol);
           // Update the displayed symbols to include the newly selected symbol
@@ -224,6 +228,9 @@ class App extends Component {
           }
           else {
             this.setState({ computerScore: ++computerScore });
+            if (userScore > bestScore) {
+              this.state.setState({ bestScore: userScore });
+            }
             this.setState({ userScore: 0 });
             console.log(`Score computer =`, computerScore);
           }
@@ -233,6 +240,7 @@ class App extends Component {
       case "no":
         {
           document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
+          document.getElementById("debug-symbol").innerHTML = `&#${newCurrentSymbol};`;
           // Add the newly selected symbol to the list of displayed symbols
           displayedSymbolsNew.push(newCurrentSymbol);
           // Update the displayed symbols to include the newly selected symbol
@@ -241,6 +249,9 @@ class App extends Component {
           const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
           if (lastIndex > firstIndex) {
             this.setState({ computerScore: ++computerScore });
+            if (userScore > bestScore) {
+              this.state.setState({ bestScore: userScore });
+            }
             this.setState({ userScore: 0 });
             console.log(`Score computer =`, computerScore);
           }
@@ -281,7 +292,7 @@ class App extends Component {
           <option value="emoji">Emoji</option>
           <option value="emoji-smileys">Emoji Smileys</option>
         </select>
-        <div className="App-item-container">
+        <div id="app-item-container" className="App-item-container">
           <div className="symbol">
             <span id="span-symbol"></span>
           </div>
@@ -294,7 +305,7 @@ class App extends Component {
         {config.debug &&
           <div className="debugging">
             <h5>Degugging:</h5>
-            <span>{`Current Symbol = ${this.state.currentSymbol}`}</span>
+            <span>{`Current Symbol = ${this.state.currentSymbol} (`}<span id="debug-symbol"></span>)</span>
             <br></br>
             <span>{`Displayed Symbols = ${this.state.displayedSymbols.toString()}`}</span>
             <br></br>
