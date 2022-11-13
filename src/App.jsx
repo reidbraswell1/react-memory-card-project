@@ -59,7 +59,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.generalPunctuationMax2 - config.generalPunctuationMin2) + config.generalPunctuationMin2));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -71,7 +73,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.currencySymbolsMax - config.currencySymbolsMin) + config.currencySymbolsMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -83,7 +87,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.arrowsMax - config.arrowsMin) + config.arrowsMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -95,7 +101,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.mathSymbolsMax - config.mathSymbolsMin) + config.mathSymbolsMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -107,7 +115,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.boxDrawingsMax - config.boxDrawingsMin) + config.boxDrawingsMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -119,7 +129,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.blockElementsMax - config.blockElementsMin) + config.blockElementsMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -131,7 +143,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.miscelaneousSymbolsMax - config.miscelaneousSymbolsMin) + config.geometricShapesMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -143,7 +157,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.geometricShapesMax - config.geometricShapesMin) + config.geometricShapesMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -155,7 +171,9 @@ class App extends Component {
           for (let i = 0; i < config.maxSymbolSet; i++) {
             symbols.push(Math.floor(Math.random() * (config.dingbatsMax - config.dingbatsMin) + config.dingbatsMin));
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -169,7 +187,9 @@ class App extends Component {
             let randomIdx = Math.floor(Math.random() * (config.emoji.length - 1) + 1);
             symbols.push(config.emoji[randomIdx]);
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -182,7 +202,9 @@ class App extends Component {
             let randomIdx = Math.floor(Math.random() * (config.emojiSmileys.length - 1) + 1);
             symbols.push(config.emojiSmileys[randomIdx]);
           }
+          document.getElementById("app-item-container").style.display="flex";
           document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
+          document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
           this.setState({ randomSymbols: symbols.slice(0) });
         }
         catch (err) {
@@ -211,7 +233,7 @@ class App extends Component {
     switch (event.target.value) {
       case "yes":
         {
-          document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`
+          document.getElementById("span-symbol").innerHTML = `&#${newCurrentSymbol};`;
           document.getElementById("debug-symbol").innerHTML = `&#${newCurrentSymbol};`;
           // Add the newly selected symbol to the list of displayed symbols
           displayedSymbolsNew.push(newCurrentSymbol);
