@@ -296,7 +296,7 @@ class App extends Component {
     return (
       <main className="App">
         <header className="App-header">
-          <Header Title="React Memory Game" score={this.state.userScore} bestScore={this.state.bestScore} highestScore={config.maxSymbolSet}></Header>
+          <Header Title="React Memory Game" score={this.state.userScore} bestScore={this.state.bestScore} computerScore={this.state.computerScore} highestScore={config.maxSymbolSet}></Header>
         </header>
         <label className="labels" for="symbol-select">Select Symbol</label>
         <select className="App-select pt-2 pb-2" id="symbol-select" name="symbol" onChange={this.processSelection}>
