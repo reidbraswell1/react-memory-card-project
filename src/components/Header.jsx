@@ -11,7 +11,7 @@ class Header extends Component {
             <p className="mt-3 mb-3">Objective: Answer the questions to test your memory.
                 <br></br>Highest score is {this.props.highestScore}!
             </p>
-            <ScoreCard score={this.props.score} bestScore={this.props.bestScore}></ScoreCard>
+            <ScoreCard score={this.props.score} bestScore={this.props.bestScore} computerScore={this.props.computerScore}></ScoreCard>
         </div>)
     }
 }
