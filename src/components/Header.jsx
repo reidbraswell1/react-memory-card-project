@@ -1,17 +1,28 @@
 import { Component } from "react";
 import ScoreCard from "./ScoreCard.jsx";
+import LanguageSelector from "./LanguageSelector.jsx";
+import { config } from "../utils/config.js";
+import { langCN } from "../utils/lang.cn.js";
+import { langEN } from "../utils/lang.en.js";
 
 class Header extends Component {
     constructor(props) {
         super(props);
+
     }
+
     render() {
         return (<div className="">
-            <h1 className="mt-3 mb-3">{this.props.Title}</h1>
-            <p className="mt-3 mb-3">Objective: Answer the questions to test your memory.
-                <br></br>Highest score is {this.props.highestScore}!
+            
+            <div className="App-language-container">
+                <label>Language: </label>
+                <LanguageSelector processLanguageSelection={this.props.processLanguageSelection}></LanguageSelector>
+            </div>
+            <h1 className="mt-4 mb-4">{this.props.heading}</h1>
+            <p className="mt-4 mb-4">{this.props.objective}
+                <br></br>{this.props.highestScorePrompt}{this.props.highestScore}!
             </p>
-            <ScoreCard score={this.props.score} bestScore={this.props.bestScore} computerScore={this.props.computerScore}></ScoreCard>
+            <ScoreCard scorePrompt={this.props.scorePrompt} score={this.props.score} bestScorePrompt={this.props.bestScorePrompt} bestScore={this.props.bestScore} computerScorePrompt={this.props.computerScorePrompt} computerScore={this.props.computerScore}></ScoreCard>
         </div>)
     }
 }
