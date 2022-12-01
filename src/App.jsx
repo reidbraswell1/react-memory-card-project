@@ -32,7 +32,11 @@ class App extends Component {
       scorePrompt: langEN.score,
       bestScorePrompt: langEN.bestScore,
       computerScorePrompt: langEN.computerScore,
-
+      selectSymbolLabelPrompt: langEN.selectSymbolLabelPrompt,
+      selectSymbolPrompt: langEN.selectSymbolPrompt,
+      questionPrompt: langEN.questionPrompt,
+      yesPrompt: langEN.yesPrompt,
+      noPrompt: langEN.noPrompt,
     }
   }
 
@@ -118,9 +122,9 @@ class App extends Component {
         <header className="App-header">
           <Header heading={this.state.heading} objective={this.state.objective} highestScorePrompt={this.state.highestScore} scorePrompt={this.state.scorePrompt} score={this.state.userScore} bestScorePrompt={this.state.bestScorePrompt} bestScore={this.state.bestScore} computerScorePrompt={this.state.computerScorePrompt} computerScore={this.state.computerScore} highestScore={config.maxSymbolSet} processLanguageSelection={this.processLanguageSelection}></Header>
         </header>
-        <label className="labels" htmlFor="symbol-select">Select Symbol</label>
+        <label className="labels" htmlFor="symbol-select">{this.state.selectSymbolLabelPrompt}</label>
         <select className="App-select pt-2 pb-2" id="symbol-select" name="symbol" onChange={this.processSelection}>
-          <option value="select">Select an HTML symbol</option>
+          <option value="select">{this.state.selectSymbolPrompt}</option>
           <option value="generalPunctuation1">General Punctuation 1 {config.generalPunctuationMin1}-{config.generalPunctuationMax1}</option>
           <option value="generalPunctuation2">General Punctuation 2 {config.generalPunctuationMin2}-{config.generalPunctuationMax2}</option>
           <option value="currencySymbols">Currency Symbols {config.currencySymbolsMin}-{config.currencySymbolsMax}</option>
@@ -139,9 +143,9 @@ class App extends Component {
             <span id="span-symbol"></span>
           </div>
           <div className="App-button-container">
-            <h3>Have you seen this symbol yet?</h3>
-            <button className="btn" id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>Yes</button>
-            <button className="btn" id="button-no" name="button-choice" value="no" onClick={this.processChoice}>No</button>
+            <h3>{this.state.questionPrompt}</h3>
+            <button className="btn" id="button-yes" name="button-choice" value="yes" onClick={this.processChoice}>{this.state.yesPrompt}</button>
+            <button className="btn" id="button-no" name="button-choice" value="no" onClick={this.processChoice}>{this.state.noPrompt}</button>
           </div>
         </div>
         {config.debug &&
