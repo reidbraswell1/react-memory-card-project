@@ -20,7 +20,7 @@ class Header extends Component {
             </div>
             <h1 className="mt-4 mb-4">{this.props.heading}</h1>
             <p className="mt-4 mb-4">{this.props.objective}
-                <br></br>{this.props.highestScorePrompt}{this.props.highestScore}!
+                <br></br>{this.props.highestScorePrompt} {this.props.highestScore}!
             </p>
             <ScoreCard scorePrompt={this.props.scorePrompt} score={this.props.score} bestScorePrompt={this.props.bestScorePrompt} bestScore={this.props.bestScore} computerScorePrompt={this.props.computerScorePrompt} computerScore={this.props.computerScore}></ScoreCard>
         </div>)
