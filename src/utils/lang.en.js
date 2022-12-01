@@ -5,5 +5,10 @@ const langEN = {
     score:"Score:",
     bestScore:"Best Score:",
     computerScore:"Computer Score:",
+    selectSymbolLabelPrompt: "Select Symbol",
+    selectSymbolPrompt: "Select an HTML symbol",
+    questionPrompt: "Have you seen this symbol yet?",
+    yesPrompt: "Yes",
+    noPrompt: "No",
 }
 export { langEN };
