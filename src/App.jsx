@@ -38,6 +38,18 @@ class App extends Component {
       questionPrompt: langEN.questionPrompt,
       yesPrompt: langEN.yesPrompt,
       noPrompt: langEN.noPrompt,
+      generalPunctuation_1: langEN.generalPunctuation_1,
+      generalPunctuation_2: langEN.generalPunctuation_2,
+      currencySymbols: langEN.currencySymbols,
+      arrows: langEN.arrows,
+      mathematicalOperators: langEN.mathematicaloperators,
+      boxDrawings: langEN.boxDrawings,
+      blockElements: langEN.blockElements,
+      geometricShapes: langEN.geometricShapes,
+      miscellaneousSymbols: langEN.miscellaneousSymbols,
+      dingbats: langEN.dingbats,
+      emoji: langEN.emoji,
+      emojiSmileys: langEN.emojiSmileys
     }
   }
 
@@ -50,18 +62,18 @@ class App extends Component {
         <label className="labels" htmlFor="symbol-select">{this.state.selectSymbolLabelPrompt}</label>
         <select className="App-select pt-2 pb-2" id="symbol-select" name="symbol" onChange={this.processSelection}>
           <option value="select">{this.state.selectSymbolPrompt}</option>
-          <option value="generalPunctuation1">General Punctuation 1 {config.generalPunctuationMin1}-{config.generalPunctuationMax1}</option>
-          <option value="generalPunctuation2">General Punctuation 2 {config.generalPunctuationMin2}-{config.generalPunctuationMax2}</option>
-          <option value="currencySymbols">Currency Symbols {config.currencySymbolsMin}-{config.currencySymbolsMax}</option>
-          <option value="arrows">Arrows {config.arrowsMin}-{config.arrowsMax}</option>
-          <option value="mathematical-operators">Mathematical Operators {config.mathSymbolsMin}-{config.mathSymbolsMax}</option>
-          <option value="box-drawings">Box Drawings {config.boxDrawingsMin}-{config.boxDrawingsMax}</option>
-          <option value="block-elements">Block Elements {config.geometricShapesMin}-{config.geometricShapesMax}</option>
-          <option value="geometric-shapes">Geometric Shapes {config.geometricShapesMin}-{config.geometricShapesMax}</option>
-          <option value="miscelaneous-symbols">Miscellaneous Symbols {config.miscelaneousSymbolsMin}-{config.miscelaneousSymbolsMax}</option>
-          <option value="dingbats">Dingbats {config.dingbatsMin}-{config.dingbatsMax}</option>
-          <option value="emoji">Emoji</option>
-          <option value="emoji-smileys">Emoji Smileys</option>
+          <option value="generalPunctuation1">{this.state.generalPunctuation_1} {config.generalPunctuationMin1}-{config.generalPunctuationMax1}</option>
+          <option value="generalPunctuation2">{this.state.generalPunctuation_2} {config.generalPunctuationMin2}-{config.generalPunctuationMax2}</option>
+          <option value="currencySymbols">{this.state.currencySymbols} {config.currencySymbolsMin}-{config.currencySymbolsMax}</option>
+          <option value="arrows">{this.state.arrows} {config.arrowsMin}-{config.arrowsMax}</option>
+          <option value="mathematical-operators">{this.state.mathematicalOperators} {config.mathSymbolsMin}-{config.mathSymbolsMax}</option>
+          <option value="box-drawings">{this.state.boxDrawings} {config.boxDrawingsMin}-{config.boxDrawingsMax}</option>
+          <option value="block-elements">{this.state.blockElements} {config.geometricShapesMin}-{config.geometricShapesMax}</option>
+          <option value="geometric-shapes">{this.state.geometricShapes} {config.geometricShapesMin}-{config.geometricShapesMax}</option>
+          <option value="miscelaneous-symbols">{this.state.miscellaneousSymbols} {config.miscelaneousSymbolsMin}-{config.miscelaneousSymbolsMax}</option>
+          <option value="dingbats">{this.state.dingbats} {config.dingbatsMin}-{config.dingbatsMax}</option>
+          <option value="emoji">{this.state.emoji}</option>
+          <option value="emoji-smileys">{this.state.emojiSmileys}</option>
         </select>
         <div id="app-item-container" className="App-item-container">
           <div className="symbol">
