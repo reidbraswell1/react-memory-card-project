@@ -10,5 +10,17 @@ const langEN = {
     questionPrompt: "Have you seen this symbol yet?",
     yesPrompt: "Yes",
     noPrompt: "No",
+    generalPunctuation_1: "General Punctuation 1",
+    generalPunctuation_2: "General Punctuation 2",
+    arrows: "Box Drawings",
+    mathematicaloperators: "Mathematical Operators",
+    boxDrawings: "Box Drawings",
+    blockElements: "Block Elements",
+    geometricShapes: "Geometric Shapes",
+    miscellaneousSymbols: "Miscellaneous Symbols",
+    dingbats: "Dingbats",
+    emoji: "Emoji",
+    emojiSmileys: "Emoji Smileys",
+
 }
 export { langEN };

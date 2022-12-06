@@ -10,5 +10,16 @@ const langES = {
     questionPrompt: "¿Ya has visto este símbolo?",
     yesPrompt: "Sí",
     noPrompt: "No",
+    generalPunctuation_1: "Puntuación general 1",
+    generalPunctuation_2: "Puntuación general 2",
+    arrows: "Flechas",
+    mathematicaloperators: "Operadores matemáticos",
+    boxDrawings: "Dibujos de caja",
+    blockElements: "Elementos de bloque",
+    geometricShapes: "Formas geométricas",
+    miscellaneousSymbols: "Símbolos varios",
+    dingbats: "Dingbats",
+    emoji: "Emoji",
+    emojiSmileys: "Emoji Smileys",
 }
 export { langES };
