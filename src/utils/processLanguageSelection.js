@@ -10,24 +10,47 @@ const processLanguageSelection = function (event) {
     switch (event.target.selectedOptions[0].value) {
         case "zh":
             config.heading = langCN.heading;
-            this.setState({ heading: langCN.heading });
-            this.setState({ objective: langCN.objective });
-            this.setState({ highestScore: langCN.highestScore });
-            this.setState({ scorePrompt: langCN.score, });
-            this.setState({ bestScorePrompt: langCN.bestScore });
-            this.setState({ computerScorePrompt: langCN.computerScore });
+            this.setState({
+                heading: langCN.heading,
+                objective: langCN.objective,
+                highestScore: langCN.highestScore,
+                scorePrompt: langCN.score,
+                bestScorePrompt: langCN.bestScore,
+                computerScorePrompt: langCN.computerScore,
+                selectSymbolLabelPrompt: langCN.selectSymbolLabelPrompt,
+                selectSymbolPrompt: langCN.selectSymbolPrompt,
+                questionPrompt: langCN.questionPrompt,
+                yesPrompt: langCN.yesPrompt,
+                noPrompt: langCN.noPrompt,
+                generalPunctuation_1: langCN.generalPunctuation_1,
+                generalPunctuation_2: langCN.generalPunctuation_2,
+            });
             break;
         case "en":
-            this.setState({ heading: langEN.heading });
-            this.setState({ objective: langEN.objective });
-            this.setState({ highestScore: langEN.highestScore });
-            this.setState({ scorePrompt: langEN.score, });
-            this.setState({ bestScorePrompt: langEN.bestScore });
-            this.setState({ computerScorePrompt: langEN.computerScore });
-            this.setState({ selectSymbolPrompt: langEN.selectSymbolPrompt });
-            this.setState({ questionPrompt: langEN.questionPrompt });
-            this.setState({ yesPrompt: langEN.yesPrompt });
-            this.setState({ noPrompt: langEN.noPrompt });
+            this.setState({
+                heading: langEN.heading,
+                objective: langEN.objective,
+                highestScore: langEN.highestScore,
+                scorePrompt: langEN.score,
+                bestScorePrompt: langEN.bestScore,
+                computerScorePrompt: langEN.computerScore,
+                selectSymbolPrompt: langEN.selectSymbolPrompt,
+                questionPrompt: langEN.questionPrompt,
+                yesPrompt: langEN.yesPrompt,
+                noPrompt: langEN.noPrompt,
+                generalPunctuation_1: langEN.generalPunctuation_1,
+                generalPunctuation_2: langEN.generalPunctuation_2,
+                currencySymbols: langEN.currencySymbols,
+                arrows: langEN.arrows,
+                mathematicalOperators: langEN.mathematicaloperators,
+                boxDrawings: langEN.boxDrawings,
+                blockElements: langEN.blockElements,
+                geometricShapes: langEN.geometricShapes,
+                miscellaneousSymbols: langEN.miscellaneousSymbols,
+                dingbats: langEN.dingbats,
+                emoji: langEN.emoji,
+                emojiSmileys: langEN.emojiSmileys
+            });
             break;
         case "es":
             this.setState({ heading: langES.heading });
