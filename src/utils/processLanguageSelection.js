@@ -4,6 +4,7 @@ import { langES } from './lang.es';
 import { langCN } from './lang.cn';
 import { langFR } from './lang.fr';
 import { langIT } from './lang.it';
+import { langDE } from './lang.de';
 
 
 const processLanguageSelection = function (event) {
@@ -143,6 +144,33 @@ const processLanguageSelection = function (event) {
                 dingbats: langIT.dingbats,
                 emoji: langIT.emoji,
                 emojiSmileys: langIT.emojiSmileys
+            });
+            break;
+        case "de":
+            this.setState({
+                heading: langDE.heading,
+                objective: langDE.objective,
+                highestScore: langDE.highestScore,
+                scorePrompt: langDE.score,
+                bestScorePrompt: langDE.bestScore,
+                computerScorePrompt: langDE.computerScore,
+                selectSymbolLabelPrompt: langDE.selectSymbolLabelPrompt,
+                selectSymbolPrompt: langDE.selectSymbolPrompt,
+                questionPrompt: langDE.questionPrompt,
+                yesPrompt: langDE.yesPrompt,
+                noPrompt: langDE.noPrompt,
+                generalPunctuation_1: langDE.generalPunctuation_1,
+                generalPunctuation_2: langDE.generalPunctuation_2,
+                currencySymbols: langDE.currencySymbols,
+                arrows: langDE.arrows,
+                mathematicalOperators: langDE.mathematicalOperators,
+                boxDrawings: langDE.boxDrawings,
+                blockElements: langDE.blockElements,
+                geometricShapes: langDE.geometricShapes,
+                miscellaneousSymbols: langDE.miscellaneousSymbols,
+                dingbats: langDE.dingbats,
+                emoji: langDE.emoji,
+                emojiSmileys: langDE.emojiSmileys
             });
             break;
         default:
