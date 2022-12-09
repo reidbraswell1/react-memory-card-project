@@ -3,6 +3,7 @@ import { langEN } from './lang.en';
 import { langES } from './lang.es';
 import { langCN } from './lang.cn';
 import { langFR } from './lang.fr';
+import { langIT } from './lang.it';
 
 
 const processLanguageSelection = function (event) {
@@ -91,7 +92,7 @@ const processLanguageSelection = function (event) {
                 emojiSmileys: langES.emojiSmileys
             });
             break;
-            case "fr":
+        case "fr":
             this.setState({
                 heading: langFR.heading,
                 objective: langFR.objective,
@@ -117,6 +118,33 @@ const processLanguageSelection = function (event) {
                 emoji: langFR.emoji,
                 emojiSmileys: langFR.emojiSmileys
             });
+        case "it":
+            this.setState({
+                heading: langIT.heading,
+                objective: langIT.objective,
+                highestScore: langIT.highestScore,
+                scorePrompt: langIT.score,
+                bestScorePrompt: langIT.bestScore,
+                computerScorePrompt: langIT.computerScore,
+                selectSymbolLabelPrompt: langIT.selectSymbolLabelPrompt,
+                selectSymbolPrompt: langIT.selectSymbolPrompt,
+                questionPrompt: langIT.questionPrompt,
+                yesPrompt: langIT.yesPrompt,
+                noPrompt: langIT.noPrompt,
+                generalPunctuation_1: langIT.generalPunctuation_1,
+                generalPunctuation_2: langIT.generalPunctuation_2,
+                currencySymbols: langIT.currencySymbols,
+                arrows: langIT.arrows,
+                mathematicalOperators: langIT.mathematicalOperators,
+                boxDrawings: langIT.boxDrawings,
+                blockElements: langIT.blockElements,
+                geometricShapes: langIT.geometricShapes,
+                miscellaneousSymbols: langIT.miscellaneousSymbols,
+                dingbats: langIT.dingbats,
+                emoji: langIT.emoji,
+                emojiSmileys: langIT.emojiSmileys
+            });
+            break;
         default:
             config.heading = "Error";
     }
