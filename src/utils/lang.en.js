@@ -1,3 +1,4 @@
+// English dictionary
 const langEN = {
     heading: "React Memory Game",
     objective:"Objective: Answer the questions to test your memory.",
