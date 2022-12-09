@@ -26,6 +26,9 @@ class LanguageSelector extends Component {
                 <option className="" value="it" lang="it">
                     Italionano (Italian)
                 </option>
+                <option className="" value="de" lang="de">
+                    Deutsch (German)
+                </option>
             </select>
         )
     }
