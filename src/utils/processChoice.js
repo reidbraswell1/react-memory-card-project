@@ -1,5 +1,9 @@
 import { config } from './config.js';
 
+const getRandomInteger = function (maxInt = 255) {
+    return Math.random() * 255 + 1;
+}
+
 const processChoice = function (event) {
     console.log(`---Begin ${this.processChoice.name}---`);
     console.log("Event =", event);
@@ -27,7 +31,7 @@ const processChoice = function (event) {
                 if (lastIndex > firstIndex) {
                     this.setState({ userScore: ++userScore });
                     if (userScore > bestScore) {
-                        this.state.setState({ bestScore: userScore });
+                        this.setState({ bestScore: userScore });
                     }
                     console.log(`Score user =`, userScore);
                 }
@@ -40,6 +44,10 @@ const processChoice = function (event) {
                     console.log(`Score computer =`, computerScore);
                 }
                 this.setState({ currentSymbol: newCurrentSymbol });
+                let red = getRandomInteger(config.maxInteger);
+                let blue = getRandomInteger(config.maxInteger);
+                let green = getRandomInteger(config.maxInteger);
+                document.getElementById("app-body").style.background = `rgba(${red},${blue},${green},.5`;
             }
             break;
         case "no":
@@ -69,6 +77,10 @@ const processChoice = function (event) {
                 }
                 this.setState({ currentSymbol: newCurrentSymbol });
             }
+            let red = getRandomInteger(config.maxInteger);
+            let blue = getRandomInteger(config.maxInteger);
+            let green = getRandomInteger(config.maxInteger);
+            document.getElementById("app-body").style.background = `rgba(${red},${blue},${green},.5`;
             break;
         default:
             break;
