@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { config } from '../utils/config.js';
 import { langCN } from '../utils/lang.cn';
 import App from '../App.jsx';
 
