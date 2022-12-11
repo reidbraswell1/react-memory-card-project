@@ -1,7 +1,10 @@
 import { config } from './config.js';
 
-const getRandomInteger = function (maxInt = 255) {
-    return Math.random() * 255 + 1;
+const getRandomRGBA = function (maxRBB_Int = 255, opacity=.5) {
+    let red = Math.floor(Math.random() * maxRBB_Int + 1);
+    let blue = Math.floor(Math.random() * maxRBB_Int + 1);
+    let green = Math.floor(Math.random() * maxRBB_Int + 1);
+    return `RGBA(${red},${blue},${green},${opacity})`
 }
 
 const processChoice = function (event) {
@@ -44,10 +47,9 @@ const processChoice = function (event) {
                     console.log(`Score computer =`, computerScore);
                 }
                 this.setState({ currentSymbol: newCurrentSymbol });
-                let red = getRandomInteger(config.maxInteger);
-                let blue = getRandomInteger(config.maxInteger);
-                let green = getRandomInteger(config.maxInteger);
-                document.getElementById("app-body").style.background = `rgba(${red},${blue},${green},.5`;
+                let RGBA = getRandomRGBA();
+                document.getElementById("app-body").style.background = RGBA;
+                this.setState({background: RGBA});
             }
             break;
         case "no":
@@ -77,10 +79,9 @@ const processChoice = function (event) {
                 }
                 this.setState({ currentSymbol: newCurrentSymbol });
             }
-            let red = getRandomInteger(config.maxInteger);
-            let blue = getRandomInteger(config.maxInteger);
-            let green = getRandomInteger(config.maxInteger);
-            document.getElementById("app-body").style.background = `rgba(${red},${blue},${green},.5`;
+            let RGBA = getRandomRGBA();
+            document.getElementById("app-body").style.background = RGBA;
+            this.setState({background: RGBA});
             break;
         default:
             break;

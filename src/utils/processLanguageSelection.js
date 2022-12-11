@@ -1,4 +1,3 @@
-import { config } from './config';
 import { langEN } from './lang.en';
 import { langES } from './lang.es';
 import { langCN } from './lang.cn';
@@ -119,6 +118,7 @@ const processLanguageSelection = function (event) {
                 emoji: langFR.emoji,
                 emojiSmileys: langFR.emojiSmileys
             });
+            break;
         case "it":
             this.setState({
                 heading: langIT.heading,
@@ -174,9 +174,8 @@ const processLanguageSelection = function (event) {
             });
             break;
         default:
-            config.heading = "Error";
+            console.log(`Error invalid language code = ${event.target.selectedOptions[0].value}`)
     }
-    console.log(config.heading);
     console.log(`---End Function ${this.processLanguageSelection.name}---`);
 }
 
