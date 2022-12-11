@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { processDebugToggle } from '../utils/miscFunctions.js';
 
 class Footer extends Component {
     constructor(props) {
@@ -6,9 +7,13 @@ class Footer extends Component {
     }
 
     render() {
-        return (<footer className="text-center border">
+        return (<footer className="App-footer">
             <p>{this.props.Footer}</p>
-        </footer>);
+            <div className="app-debug-container">
+                <label htmlFor="debug">Debug: </label>
+                <input id="debug" type="checkbox" onClick={this.props.debugToggle}></input>
+            </div>
+     </footer>);
     }
 }
 export default Footer;
