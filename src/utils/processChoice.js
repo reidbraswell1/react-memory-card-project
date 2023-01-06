@@ -1,5 +1,6 @@
 import { config } from './config.js';
 
+// Return a random RGBA color
 const getRandomRGBA = function (maxRBB_Int = 255, opacity=.5) {
     let red = Math.floor(Math.random() * maxRBB_Int + 1);
     let blue = Math.floor(Math.random() * maxRBB_Int + 1);
@@ -7,11 +8,13 @@ const getRandomRGBA = function (maxRBB_Int = 255, opacity=.5) {
     return `RGBA(${red},${blue},${green},${opacity})`
 }
 
+
 const processChoice = function (event) {
     console.log(`---Begin ${this.processChoice.name}---`);
-    console.log("Event =", event);
+    console.log(`Event =`, event);
+    // Get a random number between 1 and the max symbols to display 
     const randomIndex = Math.floor(Math.random() * (config.maxSymbolSet - 1) + 1);
-    console.log("RandomIndex", randomIndex);
+    console.log(`RandomIndex =`, randomIndex);
     let userScore = this.state.userScore;
     let computerScore = this.state.computerScore;
     let bestScore = this.state.bestScore;
