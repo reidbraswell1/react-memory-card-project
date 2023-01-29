@@ -2,6 +2,7 @@ import { Component } from "react";
 import { langCN } from '../utils/lang.cn';
 import App from '../App.jsx';
 
+// Language Selecctor component
 class LanguageSelector extends Component {
     constructor(props) {
         super(props);
