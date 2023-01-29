@@ -5,6 +5,7 @@ import { config } from "../utils/config.js";
 import { langCN } from "../utils/lang.cn.js";
 import { langEN } from "../utils/lang.en.js";
 
+// Header for app
 class Header extends Component {
     constructor(props) {
         super(props);
