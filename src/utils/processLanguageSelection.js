@@ -7,6 +7,7 @@ import { langDE } from './lang.de';
 import { langRU } from './lang.ru';
 
 
+// Set state for selected language code
 const processLanguageSelection = function (event) {
     console.log(`---Begin Function ${this.processLanguageSelection.name}---`);
     console.log(`Event =`, event);
