@@ -9,6 +9,7 @@ const getRandomRGBA = function (maxRBB_Int = 255, opacity=.5) {
 }
 
 
+// Process the users yes / no choice and display the next random symbol
 const processChoice = function (event) {
     console.log(`---Begin ${this.processChoice.name}---`);
     console.log(`Event =`, event);
