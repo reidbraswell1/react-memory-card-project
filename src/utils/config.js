@@ -1,7 +1,8 @@
 // General Config File
 const config = {
     debug: true,
-    maxSymbolSet: 10,
+    maxSymbols: 10,
+    min: 1,
     generalPunctuationMin1: 8208,
     generalPunctuationMax1: 8231,
     generalPunctuationMin2: 8240,

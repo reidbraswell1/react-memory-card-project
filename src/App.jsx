@@ -61,7 +61,7 @@ class App extends Component {
     return (
       <main className="App">
         <header className="App-header">
-          <Header heading={this.state.heading} objective={this.state.objective} highestScorePrompt={this.state.highestScore} scorePrompt={this.state.scorePrompt} score={this.state.userScore} bestScorePrompt={this.state.bestScorePrompt} bestScore={this.state.bestScore} computerScorePrompt={this.state.computerScorePrompt} computerScore={this.state.computerScore} highestScore={config.maxSymbolSet} processLanguageSelection={this.processLanguageSelection}></Header>
+          <Header heading={this.state.heading} objective={this.state.objective} highestScorePrompt={this.state.highestScore} scorePrompt={this.state.scorePrompt} score={this.state.userScore} bestScorePrompt={this.state.bestScorePrompt} bestScore={this.state.bestScore} computerScorePrompt={this.state.computerScorePrompt} computerScore={this.state.computerScore} highestScore={config.maxSymbols} processLanguageSelection={this.processLanguageSelection}></Header>
         </header>
         <div id="app-body" className="App-body">
           <label className="labels" htmlFor="symbol-select">{this.state.selectSymbolLabelPrompt}</label>

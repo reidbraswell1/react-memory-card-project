@@ -13,7 +13,7 @@ const processSelection = function(event)  {
     switch (event.target.selectedOptions[0].value) {
         case "generalPunctuation1":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.generalPunctuationMax1 - config.generalPunctuationMin1) + config.generalPunctuationMin1));
                 }
                 let data = this.state.displayedSymbols;
@@ -32,7 +32,7 @@ const processSelection = function(event)  {
             break;
         case "generalPunctuation2":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.generalPunctuationMax2 - config.generalPunctuationMin2) + config.generalPunctuationMin2));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -46,7 +46,7 @@ const processSelection = function(event)  {
             break;
         case "currencySymbols":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.currencySymbolsMax - config.currencySymbolsMin) + config.currencySymbolsMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -60,7 +60,7 @@ const processSelection = function(event)  {
             break;
         case "arrows":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.arrowsMax - config.arrowsMin) + config.arrowsMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -74,7 +74,7 @@ const processSelection = function(event)  {
             break;
         case "mathematical-operators":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.mathSymbolsMax - config.mathSymbolsMin) + config.mathSymbolsMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -88,7 +88,7 @@ const processSelection = function(event)  {
             break;
         case "box-drawings":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.boxDrawingsMax - config.boxDrawingsMin) + config.boxDrawingsMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -102,7 +102,7 @@ const processSelection = function(event)  {
             break;
         case "block-elements":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.blockElementsMax - config.blockElementsMin) + config.blockElementsMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -116,7 +116,7 @@ const processSelection = function(event)  {
             break;
         case "miscelaneous-symbols":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.miscelaneousSymbolsMax - config.miscelaneousSymbolsMin) + config.geometricShapesMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -130,7 +130,7 @@ const processSelection = function(event)  {
             break;
         case "geometric-shapes":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.geometricShapesMax - config.geometricShapesMin) + config.geometricShapesMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -144,7 +144,7 @@ const processSelection = function(event)  {
             break;
         case "dingbats":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     symbols.push(Math.floor(Math.random() * (config.dingbatsMax - config.dingbatsMin) + config.dingbatsMin));
                 }
                 document.getElementById("app-item-container").style.display = "flex";
@@ -159,7 +159,7 @@ const processSelection = function(event)  {
         case "emoji":
             try {
                 let emojis = config.emoji.length;
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     let randomIdx = Math.floor(Math.random() * (config.emoji.length - 1) + 1);
                     symbols.push(config.emoji[randomIdx]);
                 }
@@ -174,7 +174,7 @@ const processSelection = function(event)  {
             break;
         case "emoji-smileys":
             try {
-                for (let i = 0; i < config.maxSymbolSet; i++) {
+                for (let i = 0; i < config.maxSymbols; i++) {
                     let randomIdx = Math.floor(Math.random() * (config.emojiSmileys.length - 1) + 1);
                     symbols.push(config.emojiSmileys[randomIdx]);
                 }
