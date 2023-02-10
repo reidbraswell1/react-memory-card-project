@@ -188,6 +188,7 @@ const processSelection = function(event)  {
             }
             break;
         default:
+            document.getElementById("app-item-container").style.display = "none";
             break;
     }
     console.log(`---End Function ${this.processSelection.name}---`);
