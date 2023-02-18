@@ -2,7 +2,7 @@
 const config = {
     debug: true,
     maxSymbols: 10,
-    min: 1,
+    minSymbols: 1,
     generalPunctuationMin1: 8208,
     generalPunctuationMax1: 8231,
     generalPunctuationMin2: 8240,
