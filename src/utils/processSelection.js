@@ -1,6 +1,6 @@
 import { config } from './config.js';
 
-const processSelection = function(event)  {
+const processSelection = function (event) {
     console.log(`---Begin Function ${this.processSelection.name}---`);
     console.log(`Event =`, event);
     console.log(`Selected Options =`, event.target.selectedOptions);
@@ -24,7 +24,13 @@ const processSelection = function(event)  {
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
                 this.setState({ currentSymbol: symbols[0] });
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
                 //document.getElementById("app-item-container").style.display="flex";
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -39,6 +45,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -53,6 +65,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -67,6 +85,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -81,6 +105,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -95,6 +125,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -109,6 +145,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -123,6 +165,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -137,6 +185,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -151,6 +205,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -167,6 +227,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
@@ -182,6 +248,12 @@ const processSelection = function(event)  {
                 document.getElementById("span-symbol").innerHTML = `&#${symbols[0]};`;
                 document.getElementById("debug-symbol").innerHTML = `&#${symbols[0]};`;
                 this.setState({ randomSymbols: symbols.slice(0) });
+                // Remove Select HTML Symbol after user has made a choice
+                document.getElementById("symbol-select").remove(0);
+                // Reset Scores if symbol is changed
+                this.setState({ userScore: 0 });
+                this.setState({ computerScore: 0 });
+                this.setState({ bestScore: 0 });
             }
             catch (err) {
                 console.log(`Error Has Occurred =`, err);
