@@ -1,7 +1,7 @@
 import { config } from './config.js';
 
 // Return a random RGBA color
-const getRandomRGBA = function (maxRBB_Int = 255, opacity=.5) {
+const getRandomRGBA = function (maxRBB_Int = 255, opacity = .5) {
     let red = Math.floor(Math.random() * maxRBB_Int + 1);
     let blue = Math.floor(Math.random() * maxRBB_Int + 1);
     let green = Math.floor(Math.random() * maxRBB_Int + 1);
@@ -36,24 +36,37 @@ const processChoice = function (event) {
                 const firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
                 const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
                 if (lastIndex > firstIndex) {
-                    this.setState({ userScore: ++userScore });
-                    if (userScore > bestScore) {
-                        this.setState({ bestScore: userScore });
+                    // If the user score exceeds max score reset userScore to 0 and computerScore to 0
+                    if (userScore >= config.maxScore) {
+                        this.setState({ userScore: 0 });
+                        this.setState({ computerScore: 0 });
+                    }
+                    else {
+                        this.setState({ userScore: ++userScore });
+                        if (userScore > bestScore) {
+                            this.setState({ bestScore: userScore });
+                        }
                     }
                     console.log(`Score user =`, userScore);
                 }
+                // User guessed incorrectly
                 else {
-                    this.setState({ computerScore: ++computerScore });
-                    if (userScore > bestScore) {
-                        this.state.setState({ bestScore: userScore });
+                    if (computerScore > config.maxScore) {
+                        this.setState({ computerScore: 0 })
                     }
-                    this.setState({ userScore: 0 });
+                    else {
+                        this.setState({ computerScore: ++computerScore });
+                        if (userScore > bestScore) {
+                            this.state.setState({ bestScore: userScore });
+                        }
+                        this.setState({ userScore: 0 });
+                    }
                     console.log(`Score computer =`, computerScore);
                 }
                 this.setState({ currentSymbol: newCurrentSymbol });
                 let RGBA = getRandomRGBA();
                 document.getElementById("app-body").style.background = RGBA;
-                this.setState({background: RGBA});
+                this.setState({ background: RGBA });
             }
             break;
         case "no":
@@ -67,11 +80,17 @@ const processChoice = function (event) {
                 const firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
                 const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
                 if (lastIndex > firstIndex) {
-                    this.setState({ computerScore: ++computerScore });
-                    if (userScore > bestScore) {
-                        this.state.setState({ bestScore: userScore });
+                    console.log("config.maxScore", config.maxScore);
+                    if (computerScore >= config.maxScore) {
+                        this.setState({ computerScore: 0 });
                     }
-                    this.setState({ userScore: 0 });
+                    else {
+                        this.setState({ computerScore: ++computerScore });
+                        if (userScore > bestScore) {
+                            this.state.setState({ bestScore: userScore });
+                        }
+                        this.setState({ userScore: 0 });
+                    }
                     console.log(`Score computer =`, computerScore);
                 }
                 else {
@@ -85,7 +104,7 @@ const processChoice = function (event) {
             }
             let RGBA = getRandomRGBA();
             document.getElementById("app-body").style.background = RGBA;
-            this.setState({background: RGBA});
+            this.setState({ background: RGBA });
             break;
         default:
             break;
