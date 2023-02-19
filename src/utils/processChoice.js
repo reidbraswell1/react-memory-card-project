@@ -35,6 +35,9 @@ const processChoice = function (event) {
                 this.setState({ displayedSymbols: displayedSymbolsNew });
                 const firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
                 const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
+                // Last index of items in the displayed list will
+                // be greater if the symbol has been displayed before.
+                // For a "yes" response the user scores.
                 if (lastIndex > firstIndex) {
                     // If the user score exceeds max score reset userScore to 0 and computerScore to 0
                     if (userScore >= config.maxScore) {
@@ -79,6 +82,9 @@ const processChoice = function (event) {
                 this.setState({ displayedSymbols: displayedSymbolsNew });
                 const firstIndex = displayedSymbolsNew.sort().indexOf(currentSymbol);
                 const lastIndex = displayedSymbolsNew.sort().lastIndexOf(currentSymbol);
+                // Last index of items in the displayed list will
+                // be greater if the symbol has been displayed before.
+                // Far a "no" response the computer scores.
                 if (lastIndex > firstIndex) {
                     console.log("config.maxScore", config.maxScore);
                     if (computerScore >= config.maxScore) {
