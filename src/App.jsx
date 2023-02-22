@@ -105,7 +105,7 @@ class App extends Component {
             <br></br>
             <span>Debug: {this.state.debug.toString()}</span>
           </div>
-        <Footer Footer="React Memory Card Project 11/22" debugToggle={this.processDebugToggle}></Footer>
+        <Footer Footer="React Memory Card Project 02/23" debugToggle={this.processDebugToggle}></Footer>
       </main>);
   }
 }
